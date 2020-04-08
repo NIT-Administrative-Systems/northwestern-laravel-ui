@@ -90,9 +90,9 @@
 
     <script src="{{ mix('js/app.js') }}"></script>
 
-    @isset($raven_config['dsn'])
+    @isset($sentry_config['dsn'])
     <script type="text/javascript">
-        Sentry.init(@json($raven_config));
+        Sentry.init(@json($sentry_config));
     </script>
     @endisset
 
