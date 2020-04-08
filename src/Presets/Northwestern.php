@@ -57,26 +57,6 @@ class Northwestern extends Presets\Preset
 
     protected static function updateLayout()
     {
-        $manifest = [
-            'errors',
-            'flash',
-            'purple-chrome',
-            'purple-container',
-            'purple-widescreen',
-        ];
-
-        if (is_dir(resource_path('views/layout')) === false) {
-            mkdir(resource_path('views/layout'));
-        }
-
-        // If the _nav file was previously ejected, DO NOT overwrite it. 
-        // This is where lots of customization will happen.
-        if (file_exists(resource_path('views/layout/_nav.blade.php')) === false) {
-            $manifest[] = '_nav';
-        }
-
-        foreach ($manifest as $file) {
-            copy(__DIR__."/northwestern-stubs/views/layout/${file}.blade.php", resource_path("views/layout/${file}.blade.php"));
-        }
+        copy(__DIR__."/northwestern-stubs/views/layout/_nav.blade.php", resource_path("views/layout/_nav.blade.php"));
     }
 }

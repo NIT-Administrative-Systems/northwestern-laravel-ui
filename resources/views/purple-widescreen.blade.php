@@ -1,4 +1,4 @@
-@extends('layout.purple-chrome')
+@extends('northwestern::purple-chrome')
 
 @section('container')
 <div class="container-fluid">
@@ -10,7 +10,7 @@
         <div class='col-12 col-lg-8 col-xl-10 order-1 order-lg-2'>
             @yield('heading')
 
-            @include('layout.flash')
+            @include('northwestern::flash')
 
             @yield('content')
         </div>

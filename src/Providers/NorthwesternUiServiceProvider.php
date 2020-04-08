@@ -11,14 +11,16 @@ class NorthwesternUiServiceProvider extends ServiceProvider
 {
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__ . '/../../config/northwestern-theme.php', 'northwestern-theme');
+        $this->mergeConfigFrom(__DIR__.'/../../config/northwestern-theme.php', 'northwestern-theme');
     }
 
     public function boot()
     {
         $this->publishes([
-            __DIR__ . '/../../config/northwestern-theme.php' => config_path('northwestern-theme.php'),
+            __DIR__.'/../../config/northwestern-theme.php' => config_path('northwestern-theme.php'),
         ], 'config');
+
+        $this->loadViewsFrom(__DIR__.'/../../resources/views', 'northwestern');
 
         if ($this->app->runningInConsole()) {
             UiCommand::macro('northwestern', function () {
@@ -33,7 +35,7 @@ class NorthwesternUiServiceProvider extends ServiceProvider
             });
         }
 
-        View::composer('layout.purple-chrome', function ($view) {
+        View::composer('northwestern::purple-chrome', function ($view) {
             $view->with('sentry_config', [
                 'dsn' => config('northwestern-theme.sentry-dsn'),
                 'environment' => config('app.env'),
