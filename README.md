@@ -10,7 +10,7 @@ This package requires Laravel 7+.
 composer require northwestern-sysdev/northwestern-laravel-ui
 php artisan vendor:publish --provider="Northwestern\SysDev\UI\Providers\NorthwesternUiServiceProvider"
 
-php artisan ui --preset=northwestern # you can add --auth if you need the register/login stuff
+php artisan ui northwestern # you can add --auth if you need the register/login stuff
 ```
 
 ## Usage
