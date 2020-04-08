@@ -23,14 +23,14 @@ class NorthwesternUiServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__.'/../../resources/views', 'northwestern');
 
         if ($this->app->runningInConsole()) {
-            UiCommand::macro('northwestern', function () {
+            UiCommand::macro('northwestern', function ($console) {
                 Northwestern::install();
 
-                $this->info('Bootstrap scaffolding w/ Northwestern theme installed successfully.');
-                $this->comment('Please run "yarn install && yarn run dev" to compile your fresh scaffolding.');
+                $console->info('Bootstrap scaffolding w/ Northwestern theme installed successfully.');
+                $console->comment('Please run "yarn install && yarn run dev" to compile your fresh scaffolding.');
 
-                if ($this->option('auth')) {
-                    $this->call('ui:auth');
+                if ($console->option('auth')) {
+                    $console->call('ui:auth');
                 }
             });
         }

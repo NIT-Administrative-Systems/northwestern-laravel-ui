@@ -57,6 +57,11 @@ class Northwestern extends Presets\Preset
 
     protected static function updateLayout()
     {
+        $layout_dir = resource_path('views/layout');
+        if (is_dir($layout_dir) == false) {
+            mkdir($layout_dir);
+        }
+
         copy(__DIR__."/northwestern-stubs/views/layout/_nav.blade.php", resource_path("views/layout/_nav.blade.php"));
     }
 }
