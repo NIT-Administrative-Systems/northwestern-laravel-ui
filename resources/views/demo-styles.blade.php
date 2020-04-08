@@ -3,7 +3,7 @@
 $errors = new Illuminate\Support\MessageBag(['first_name' => 'The first name field is required', 'last_name' => 'The last name field is required']);
 @endphp
 
-@include('northwestern::purple-container')
+@extends('northwestern::purple-container')
 
 @section('heading')
 <nav aria-label="breadcrumb">
