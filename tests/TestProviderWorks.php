@@ -17,6 +17,28 @@ class TestProviderWorks extends TestCase
     /** @test */
     public function renders()
     {
-        // 
+        $this->app['router']->get(__METHOD__, function () {
+            return view('northwestern::demo-styles');
+        });
+
+        $this->get(__METHOD__)
+            ->assertOk()
+            ->assertSeeText(config('northwestern-theme.office.phone'))
+            ->assertDontSee('Sentry.init');
+    }
+
+    /** @test */
+    public function sentry_configured()
+    {
+        $this->app['config']->set('northwestern-theme.sentry-dsn', 'sentry-dsn-mocked-value-woohoo');
+
+        $this->app['router']->get(__METHOD__, function () {
+            return view('northwestern::demo-styles');
+        });
+
+        $this->get(__METHOD__)
+            ->assertOk()
+            ->assertSee('Sentry.init')
+            ->assertSee(config('northwestern-theme.sentry-dsn'));
     }
 }
