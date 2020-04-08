@@ -12,5 +12,31 @@
         "name": "Nicholas Evans",
         "email": "nick.evans@northwestern.edu"
     }],
-    "require": {}
+    "conflict": {
+        "laravel/laravel": "<7.0"
+    },
+    "require": {
+        "laravel/ui": "^2.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^5.1",
+        "phpunit/phpunit": "^9"
+    },
+    "autoload": {
+        "psr-4": {
+            "Northwestern\\SysDev\\UI\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Northwestern\\SysDev\\UI\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Northwestern\\SysDev\\UI\\Providers\\NorthwesternUiServiceProvider"
+            ]
+        }
+    }
 }
