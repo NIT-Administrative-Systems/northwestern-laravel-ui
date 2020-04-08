@@ -13,7 +13,7 @@
         "email": "nick.evans@northwestern.edu"
     }],
     "conflict": {
-        "laravel/laravel": "<7.0"
+        "laravel/framework": "<7.0"
     },
     "require": {
         "laravel/ui": "^2.0"
