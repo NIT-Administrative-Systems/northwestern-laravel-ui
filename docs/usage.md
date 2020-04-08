@@ -60,11 +60,27 @@ As with the purple container, the heading/content are split so flash messages ma
 
 ![Purple widescreen layout](./assets/widescreen-layout.png)
 
-
 ## Page Titles
+Whenever you render a view from a controller/route, you should pass the `$page_title` variable. This will be added to the page's `<title>` tag. If you do not specify a title, the app name will be used.
+
+```php
+class StudentDetailController 
+{
+    public function __invoke()
+    {
+        return view('student-detail', [
+            'page_title' => 'Student Detail',
+        ])
+    }
+}
+```
+
+Using good page titles is great for web accessibility & history.
 
 ## Flash Messages
 
+
 ## Error Summary
+
 
 ## Javascript
