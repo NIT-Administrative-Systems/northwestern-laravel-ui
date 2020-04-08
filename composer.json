@@ -1,0 +1,16 @@
+{
+    "name": "northwestern-sysdev/northwestern-laravel-ui",
+    "description": "Northwestern University Bootstrap 4 theme for Laravel apps",
+    "type": "library",
+    "license": "MIT",
+    "keywords": [
+        "northwestern",
+        "northwestern university",
+        "laravel"
+    ],
+    "authors": [{
+        "name": "Nicholas Evans",
+        "email": "nick.evans@northwestern.edu"
+    }],
+    "require": {}
+}
