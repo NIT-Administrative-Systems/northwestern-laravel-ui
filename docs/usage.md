@@ -77,10 +77,53 @@ class StudentDetailController
 
 Using good page titles is great for web accessibility & history.
 
-## Flash Messages
-
-
 ## Error Summary
+Form validation errors can be summarized with the error view. This is **not** a subsitute for showing errors with the applicable field; it should be used in concert with [`is-invalid` form control styling](https://getbootstrap.com/docs/4.0/components/forms/#validation).
 
+The summary is not automatically included by the layout. It is better to pick a spot to insert it near the relevant form elements.
+
+All you need to do is include the error view. It will detect when the default error bag has something to show:
+
+```php
+@include('northwestern::errors')
+
+<h2>Billing address</h2>
+<form action="...">
+    <!-- ... -->
+</form>
+```
+
+It has some boilerplate text and an icon, giving you a standard look for form validation summaries.
+
+![Form validation summary](./assets/error.png)
+
+## Flash Messages
+[Flash messages](https://laravel.com/docs/7.x/session#flash-data) for the `status` key will be displayed automatically by both layouts.
 
 ## Javascript
+The best practice for including Javascript in a page is to put it at the very bottom of the `<body>` element. The layouts support this by rendering [the `scripts` stack](https://laravel.com/docs/7.x/blade#stacks).
+
+```php
+@extends('northwestern::purple-container')
+
+@section('heading')
+<h2>Northwestern Bootstrap Theme</h2>
+@endsection
+
+@section('content')
+<p>Hello world!</p>
+@endsection
+
+@stack('scripts')
+<script lang="text/javascript">
+    alert('Hello world');
+</script>
+@endstack
+```
+
+You may add several entries to the stack. This is useful for partial Blade templates that include some JS behaviour.
+
+## Environment Badge
+The topmost purple bar contains an environment indicator for non-production environments. Developers often have many tabs open, so the big obvious hint about where they are comes in handy.
+
+If you set `APP_ENV=production`, it will not be shown.
