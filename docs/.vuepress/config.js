@@ -5,6 +5,7 @@ module.exports = {
     dest: '.build',
 
     themeConfig: {
+        displayAllHeaders: true,
         repo: 'NIT-Administrative-Systems/northwestern-laravel-ui',
         docsDir: 'docs',
         docsBranch: 'develop',
