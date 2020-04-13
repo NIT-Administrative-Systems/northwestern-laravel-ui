@@ -56,6 +56,21 @@ The purple widescreen layout is ideal for datatables with filter controls on the
 @endsection
 ```
 
+By default, the sidebar will be on the left side of the screen. If you prefer to have it on the right side, pass the `layout_sidebar_side` variable in the `extends` directive. On small screens, the sidebar will always be after the content area (so controls won't be shown above their datatables).
+
+```php
+// 'left' or 'right'
+@extends('northwestern::purple-widescreen', ['layout_sidebar_side' => 'right'])
+
+@section('sidebar')
+// . . .
+@endsection
+
+@section('content')
+// . . .
+@endsection
+```
+
 As with the purple container, the heading/content are split so flash messages may be shown between them. When displaying a table, the heading is typically omitted so the table's controls align with the top of the search filters.
 
 ![Purple widescreen layout](./assets/widescreen-layout.png)
