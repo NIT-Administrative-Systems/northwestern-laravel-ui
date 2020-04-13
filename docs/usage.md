@@ -75,6 +75,36 @@ As with the purple container, the heading/content are split so flash messages ma
 
 ![Purple widescreen layout](./assets/widescreen-layout.png)
 
+## Building Your Own Layout
+The header & footer are in their own template without any containers or columns for the content. You can extend the base layout to define your own custom Bootstrap grid for the page content.
+
+Here is an example three-column content area, with the middle column being wider:
+
+```php
+@extends('northwestern::purple-chrome')
+
+@section('container')
+<div class="container">
+    <div class='row'>
+        <div class='col-md-2'>
+            @yield('left-column')
+        </div>
+
+        <div class='col-md-4'>
+            // You should include the flash alert box somewhere in your layout
+            @include('northwestern::flash')
+
+            @yield('content')
+        </div>
+
+        <div class='col-md-2'>
+            @yield('right-column')
+        </div>
+    </div>
+</div>
+@endsection
+```
+
 ## Page Titles
 Whenever you render a view from a controller/route, you should pass the `$page_title` variable. This will be added to the page's `<title>` tag. If you do not specify a title, the app name will be used.
 
