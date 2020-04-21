@@ -36,6 +36,8 @@ class NorthwesternUiServiceProvider extends ServiceProvider
         }
 
         View::composer('northwestern::purple-chrome', function ($view) {
+            $view->with('load_livewire', $this->app->bound('livewire'));
+
             $view->with('sentry_config', [
                 'dsn' => config('northwestern-theme.sentry-dsn'),
                 'environment' => config('app.env'),

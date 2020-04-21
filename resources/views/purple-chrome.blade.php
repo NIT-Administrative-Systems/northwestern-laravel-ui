@@ -9,6 +9,10 @@
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     <link href="https://common.northwestern.edu/v8/icons/favicon-16.png" rel="icon" sizes="16x16" type="image/png">
     <link href="https://common.northwestern.edu/v8/icons/favicon-32.png" rel="icon" sizes="32x32" type="image/png">
+
+    @if ($load_livewire)
+    @livewireStyles()
+    @endif
   </head>
   <body class="d-flex flex-column min-vh-100">
     <div class="flex-grow-1">
@@ -95,6 +99,10 @@
         Sentry.init(@json($sentry_config));
     </script>
     @endisset
+
+    @if ($load_livewire)
+        @livewireScripts()
+    @endif
 
     @stack('scripts')
   </body>

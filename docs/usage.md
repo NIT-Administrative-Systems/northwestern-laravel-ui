@@ -172,3 +172,8 @@ You may add several entries to the stack. This is useful for partial Blade templ
 The topmost purple bar contains an environment indicator for non-production environments. Developers often have many tabs open, so the big obvious hint about where they are comes in handy.
 
 If you set `APP_ENV=production`, it will not be shown.
+
+## Livewire
+If the package detects [Livewire](https://laravel-livewire.com) is installed, the scripts/styles will be injected into the layout.
+
+This setup is automatic and does not require anything to be done beyond installing the package.
