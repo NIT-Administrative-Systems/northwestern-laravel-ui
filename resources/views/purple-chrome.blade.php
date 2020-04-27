@@ -15,7 +15,7 @@
     @endif
   </head>
   <body class="d-flex flex-column min-vh-100">
-    <div class="flex-grow-1">
+    <div class="flex-grow-1" id="app">
         <nav class="navbar navbar-inverse bg-dark-purple">
             <a class="navbar-brand" href="/"><img src="{{ Str::startsWith('http', config('northwestern-theme.lockup')) ? config('northwestern-theme.lockup') : config('northwestern-theme.lockup') }}" alt='{{ config('app.name') }}'></a>
 
