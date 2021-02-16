@@ -3,6 +3,8 @@ Adds a Northwestern Bootstrap theme into your Laravel application.
 
 The Sentry browser SDK (for reporting on JS errors) will be automatically configured if you are using Sentry in the Laravel app.
 
+This depends on the `laravel/ui` package. It is mutually exclusive with Laravel Breeze/Jetstream, as those no longer use Bootstrap.
+
 ## Overview
 The package modifies the default Bootstrap settings to be more purple, loads the Northwestern fonts, adds [Font Awesome icons](https://fontawesome.com/icons?d=gallery&m=free), and gives you a responsive ready-made site layout.
 
