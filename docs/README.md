@@ -67,3 +67,15 @@ Route::get('/demo', function () {
     return view('northwestern::demo-styles');
 });
 ```
+
+## Upgrading
+### v1.3.0
+This release supports Laravel 8.
+
+There are no breaking changes in this release.
+
+:::tip Laravel 8 Paginator
+The framework changed the paginator to use TailwindCSS styles in Laravel 8.
+
+If you are seeing very large angle brackets beneath your paginator, you need to [add `Paginator::useBootstrap()`](https://laravel.com/docs/8.x/upgrade#pagination-defaults) to your `AppServiceProvider`.
+:::
