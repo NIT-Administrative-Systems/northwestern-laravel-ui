@@ -69,7 +69,7 @@ Route::get('/demo', function () {
 ```
 
 ## Upgrading
-### v1.3.0
+### v1.4.0
 This release supports Laravel 8.
 
 There are no breaking changes in this release.
