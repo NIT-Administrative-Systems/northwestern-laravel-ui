@@ -22,11 +22,13 @@
             @if (config('app.env') !== 'production')
             <span class="badge badge-warning d-none d-sm-inline" style="font-size: large;">
                 <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Environment: {{ config('app.env') }}
+                @includeIf('db-schema-display')
             </span>
 
             {{-- Need to format a bit differently for small screens, or it looks un-designed --}}
             <span class="badge badge-warning d-inline d-sm-none mx-auto my-2" style="font-size: large;">
                 <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Environment: {{ config('app.env') }}
+                @includeIf('db-schema-display')
             </span>
             @endif
         </nav>
