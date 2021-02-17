@@ -173,7 +173,7 @@ The topmost purple bar contains an environment indicator for non-production envi
 
 If you set `APP_ENV=production`, it will not be shown.
 
-If you also want to display the name of your current database schema in the badge (another helpful hint for developers), it may be passed in the `@includeIf` directive by creating a relevant template in your application entitled 'db_schema_display'.
+If you also want to display the name of your current database schema in the badge (another helpful hint for developers), it may be passed in the `@includeIf` directive by creating a relevant template in your application entitled 'db-schema-display'.
 
 ## Livewire
 If the package detects [Livewire](https://laravel-livewire.com) is installed, the scripts/styles will be injected into the layout.
