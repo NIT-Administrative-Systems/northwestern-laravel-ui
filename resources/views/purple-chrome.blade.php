@@ -94,6 +94,10 @@
 
     </footer>
 
+    @if ($load_livewire)
+        @livewireScripts()
+    @endif
+
     <script src="{{ mix('js/app.js') }}"></script>
 
     @isset($sentry_config['dsn'])
@@ -101,10 +105,6 @@
         Sentry.init(@json($sentry_config));
     </script>
     @endisset
-
-    @if ($load_livewire)
-        @livewireScripts()
-    @endif
 
     @stack('scripts')
   </body>
