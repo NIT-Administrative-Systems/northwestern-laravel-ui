@@ -175,6 +175,19 @@ If you set `APP_ENV=production`, it will not be shown.
 
 If you also want to display the name of your current database schema in the badge (another helpful hint for developers), it may be passed in the `@includeIf` directive by creating a relevant template in your application entitled 'db-schema-display'.
 
+## Customizing the Body Tag
+In some cases, you may need to adjust the classes or attributes applied to the `<body>` tag. For example, this is useful when adding a Bootstrap scroll spy to your page.
+
+```php
+@extends('northwestern::purple-container', ['bodyClasses' => 'position-relative', 'bodyAttributes' => 'data-spy="scroll" data-target="#navbar-application" data-offset="0"'])
+
+// . . .
+```
+
+The classes will replace the existing classes on the body tag. 
+
+The attributes will be added. Attributes are not escaped, and untrusted data should not be passed here. 
+
 ## Livewire
 If the package detects [Livewire](https://laravel-livewire.com) is installed, the scripts/styles will be injected into the layout.
 

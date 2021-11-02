@@ -69,6 +69,11 @@ Route::get('/demo', function () {
 ```
 
 ## Upgrading
+### v1.5.0
+This release adds support for modifying the body tag.
+
+There are no breaking changes.
+
 ### v1.4.0
 This release supports Laravel 8.
 
