@@ -14,7 +14,7 @@
     @livewireStyles()
     @endif
   </head>
-  <body class="d-flex flex-column min-vh-100">
+  <body class="{{ isset($bodyClasses) ? $bodyClasses : 'd-flex flex-column min-vh-100' }}" {!! isset($bodyAttributes) ? $bodyAttributes : '' !!}>
     <div class="flex-grow-1" id="app">
         <nav class="navbar navbar-inverse bg-dark-purple">
             <a class="navbar-brand" href="/"><img src="{{ Str::startsWith('http', config('northwestern-theme.lockup')) ? config('northwestern-theme.lockup') : config('northwestern-theme.lockup') }}" alt='{{ config('app.name') }}'></a>
@@ -94,6 +94,10 @@
 
     </footer>
 
+    @if ($load_livewire)
+        @livewireScripts()
+    @endif
+
     <script src="{{ mix('js/app.js') }}"></script>
 
     @isset($sentry_config['dsn'])
@@ -101,10 +105,6 @@
         Sentry.init(@json($sentry_config));
     </script>
     @endisset
-
-    @if ($load_livewire)
-        @livewireScripts()
-    @endif
 
     @stack('scripts')
   </body>
