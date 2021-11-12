@@ -16,7 +16,7 @@
   </head>
   <body class="{{ isset($bodyClasses) ? $bodyClasses : 'd-flex flex-column min-vh-100' }}" {!! isset($bodyAttributes) ? $bodyAttributes : '' !!}>
     <div class="flex-grow-1" id="app">
-        <nav class="navbar navbar-inverse bg-dark-purple">
+        <nav class="navbar navbar-inverse bg-dark-purple" aria-label="Logo">
             <a class="navbar-brand" href="/"><img src="{{ Str::startsWith('http', config('northwestern-theme.lockup')) ? config('northwestern-theme.lockup') : config('northwestern-theme.lockup') }}" alt='{{ config('app.name') }}'></a>
 
             @if (config('app.env') !== 'production')
@@ -33,7 +33,7 @@
             @endif
         </nav>
 
-        <nav class="navbar navbar-expand-md navbar-dark bg-primary">
+        <nav class="navbar navbar-expand-md navbar-dark bg-primary"  aria-label="Navbar">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -41,8 +41,9 @@
                 @include('layout._nav')
             </div>
         </nav>
-
-        @yield('container')
+        <main role="main">
+            @yield('container')
+        </main>
     </div>
 
     <footer class="container-fluid d-print-none">

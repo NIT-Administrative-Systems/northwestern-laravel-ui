@@ -69,6 +69,20 @@ Route::get('/demo', function () {
 ```
 
 ## Upgrading
+### v1.6.0
+This release fixes accessibility concerns
+
+There are no breaking changes in this release.
+
+To get these changes on existing apps add the following to the `sass/nu_purple_layout.scss` in your app.
+
+```css
+//This overrides bootstrap default [color: hsla(0,0%,100%,.5);] for accessibility reasons
+.navbar-dark .navbar-nav .nav-link {
+    color: hsla(0,0%,100%,.6);
+}
+```
+
 ### v1.5.0
 This release adds support for modifying the body tag.
 
