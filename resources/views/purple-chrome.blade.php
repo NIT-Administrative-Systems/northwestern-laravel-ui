@@ -17,7 +17,12 @@
   <body class="{{ isset($bodyClasses) ? $bodyClasses : 'd-flex flex-column min-vh-100' }}" {!! isset($bodyAttributes) ? $bodyAttributes : '' !!}>
     <div class="flex-grow-1" id="app">
         <nav class="navbar navbar-inverse bg-dark-purple" aria-label="Logo">
-            <a class="navbar-brand" href="/"><img src="{{ Str::startsWith('http', config('northwestern-theme.lockup')) ? config('northwestern-theme.lockup') : config('northwestern-theme.lockup') }}" alt='{{ config('app.name') }}'></a>
+            <a class="navbar-brand" href="/">
+                <img
+                    src="{{ isset($navbar_custom_lockup_url) ? $navbar_custom_lockup_url : config('northwestern-theme.lockup') }}"
+                    alt='{{ isset($navbar_custom_lockup_alt) ? $navbar_custom_lockup_alt : config('app.name') }}'
+                >
+            </a>
 
             @if (config('app.env') !== 'production')
             <span class="badge badge-warning d-none d-sm-inline" style="font-size: large;">
