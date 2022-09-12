@@ -192,3 +192,22 @@ The attributes will be added. Attributes are not escaped, and untrusted data sho
 If the package detects [Livewire](https://laravel-livewire.com) is installed, the scripts/styles will be injected into the layout.
 
 This setup is automatic and does not require anything to be done beyond installing the package.
+
+## Sentry
+If a Sentry DSN environment variable is detected, the layout will automatically initialize the Sentry browser SDK to capture client-side JavaScript errors.
+
+Ad-blocking extensions such as uBlock Origin will interfere with the SDK reporting back to Sentry; they may treat `sentry.io` as a tracking service. 
+
+This can be worked around by [enabling tunneling](https://docs.sentry.io/platforms/javascript/troubleshooting/#dealing-with-ad-blockers) for the browser SDK. This proxies requests meant for Sentry through your application, avoiding interference from any browser extensions the user has installed.
+
+This package provides a ready-made controller for tunneling requests. In your `routes/web.php` file, add the following:
+
+```php
+// routes/web.php
+
+// Disabling the CSRF middleware is mandatory.
+// The SDK doesn't know how to add the necessary header when tunneling.
+Route::sentryTunnel('sentry/tunnel', [\App\Http\Middleware\VerifyCsrfToken::class]);
+```
+
+No further configuration should be required. The package will detect that the route has been configured and automatically add the `tunnel` parameter when initalizing the JavaScript SDK.
