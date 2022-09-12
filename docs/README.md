@@ -1,7 +1,7 @@
 # Northwestern Bootstrap Preset for Laravel
 Adds a Northwestern Bootstrap theme into your Laravel application.
 
-The Sentry browser SDK (for reporting on JS errors) will be automatically configured if you are using Sentry in the Laravel app.
+The Sentry browser SDK (for reporting on JS errors) will be automatically configured if you are using Sentry in the Laravel app. You should [enable tunneling for the browser SDK](usage.md#sentry).
 
 This depends on the `laravel/ui` package. It is mutually exclusive with Laravel Breeze/Jetstream, as those no longer use Bootstrap.
 
@@ -59,6 +59,8 @@ SENTRY_LARAVEL_DSN=
 
 The `resources/views/layout/_nav.blade.php` view will be created in your project. This is intended for you to customize with nav items, login links, and user info.
 
+If you are using Sentry, you should [set up the tunneling route](usage.md#sentry) for the most reliable data captures from the browser SDK.
+
 ### Verifying the Installation
 The package has a built-in demo view to showcase the layout & theme. The easiest way to see it is to add an entry to your `routes/web.php` file:
 
@@ -69,6 +71,11 @@ Route::get('/demo', function () {
 ```
 
 ## Upgrading
+### v1.7.0
+This release adds a controller for Sentry's JavaScript browser SDK to tunnel through.
+
+See [the new section on Sentry](usage.md#sentry) for more information on using this feature.
+
 ### v1.6.0
 This release fixes accessibility concerns
 

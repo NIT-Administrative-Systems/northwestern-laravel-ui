@@ -2,9 +2,11 @@
 
 namespace Northwestern\SysDev\UI\Providers;
 
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
 use Laravel\Ui\UiCommand;
+use Northwestern\SysDev\UI\Http\Controllers\SentryTunnelController;
 use Northwestern\SysDev\UI\Presets\Northwestern;
 
 class NorthwesternUiServiceProvider extends ServiceProvider
@@ -41,8 +43,14 @@ class NorthwesternUiServiceProvider extends ServiceProvider
             $view->with('sentry_config', [
                 'dsn' => config('northwestern-theme.sentry-dsn'),
                 'environment' => config('app.env'),
+                'tunnel' => Route::has('sentry.tunnel') ? route('sentry.tunnel', [], false) : null,
             ]);
         });
 
+        Route::macro('sentryTunnel', function ($withoutMiddleware = [], $path = 'sentry/tunnel') {
+            Route::post($path, SentryTunnelController::class)
+                ->withoutMiddleware($withoutMiddleware)
+                ->name('sentry.tunnel');
+        });
     }
 }
