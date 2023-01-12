@@ -112,7 +112,6 @@
         @if($sentry_config['enable_apm'])
             sentryConfig.integrations.push(new BrowserTracing())
         @endif
-            console.log(sentryConfig);
         Sentry.init(sentryConfig);
     </script>
     @endisset
