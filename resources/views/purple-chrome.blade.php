@@ -108,11 +108,12 @@
 
     @isset($sentry_config['dsn'])
     <script type="text/javascript">
-        const config = @json($sentry_config);
+        const sentryConfig = @json($sentry_config);
         @if($sentry_config['enable_apm'])
-            config['integrations'].push(new BrowserTracing())
+            sentryConfig.integrations.push(new BrowserTracing())
         @endif
-        Sentry.init(@json($sentry_config));
+            console.log(sentryConfig);
+        Sentry.init(sentryConfig);
     </script>
     @endisset
 
