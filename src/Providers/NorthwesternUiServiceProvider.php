@@ -46,8 +46,7 @@ class NorthwesternUiServiceProvider extends ServiceProvider
                 'tunnel' => Route::has('sentry.tunnel') ? route('sentry.tunnel', [], false) : null,
                 'integrations' => [],
                 'enable_apm' => (bool)config('northwestern-theme.sentry-enable-apm-js'), // add to integrations in blade since it has to init js object
-//                'tracesSampleRate' => config('northwestern-theme.sentry-traces-sample-rate'),
-                'tracesSampleRate' => 1.0,
+                'tracesSampleRate' => config('northwestern-theme.sentry-traces-sample-rate'),
             ]);
         });
 
