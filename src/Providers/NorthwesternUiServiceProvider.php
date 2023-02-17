@@ -44,8 +44,8 @@ class NorthwesternUiServiceProvider extends ServiceProvider
                 'dsn' => config('northwestern-theme.sentry-dsn'),
                 'environment' => config('app.env'),
                 'tunnel' => Route::has('sentry.tunnel') ? route('sentry.tunnel', [], false) : null,
-                'integrations' => [],
-                'enable_apm' => (bool)config('northwestern-theme.sentry-enable-apm-js'), // add to integrations in blade since it has to init js object
+                'integrations' => [], // add to integrations in blade since it has to init js object
+                'enable_apm' => (bool)config('northwestern-theme.sentry-enable-apm-js'),
                 'tracesSampleRate' => config('northwestern-theme.sentry-traces-sample-rate'),
             ]);
         });

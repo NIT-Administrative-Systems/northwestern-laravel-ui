@@ -15,4 +15,6 @@ return [
 
     // If specified, the Sentry browser SDK will be activated.
     'sentry-dsn' => env('SENTRY_LARAVEL_DSN', env('SENTRY_DSN')),
+    'sentry-enable-apm-js' => true,
+    'sentry-traces-sample-rate' => 0.05
 ];
