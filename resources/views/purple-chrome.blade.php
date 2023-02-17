@@ -108,10 +108,22 @@
 
     @isset($sentry_config['dsn'])
     <script type="text/javascript">
+        @isset($user)
+            const currentUser = @json($user);
+
+            Sentry.setUser({
+                username: currentUser.username,
+                email: currentUser.email,
+                segment: currentUser.segment,
+            });
+        @@endisset
+
         const sentryConfig = @json($sentry_config);
+
         @if($sentry_config['enable_apm'])
             sentryConfig.integrations.push(new BrowserTracing())
         @endif
+
         Sentry.init(sentryConfig);
     </script>
     @endisset

@@ -48,6 +48,8 @@ class NorthwesternUiServiceProvider extends ServiceProvider
                 'enable_apm' => (bool)config('northwestern-theme.sentry-enable-apm-js'),
                 'tracesSampleRate' => config('northwestern-theme.sentry-traces-sample-rate'),
             ]);
+
+            $view->with('user', auth()->user());
         });
 
         Route::macro('sentryTunnel', function ($withoutMiddleware = [], $path = 'sentry/tunnel') {
