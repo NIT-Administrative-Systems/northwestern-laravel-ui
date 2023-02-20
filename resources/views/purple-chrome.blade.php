@@ -116,7 +116,7 @@
                 email: currentUser.email,
                 segment: currentUser.segment,
             });
-        @@endisset
+        @endisset
 
         const sentryConfig = @json($sentry_config);
 
