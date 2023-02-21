@@ -51,6 +51,10 @@ class NorthwesternUiServiceProvider extends ServiceProvider
 
             $user = auth()->user();
 
+            if (! $user) {
+                return;
+            }
+
             $view->with('user', [
                 'username' => $user->username,
                 'email' => $user->email,
