@@ -49,7 +49,13 @@ class NorthwesternUiServiceProvider extends ServiceProvider
                 'tracesSampleRate' => config('northwestern-theme.sentry-traces-sample-rate'),
             ]);
 
-            $view->with('user', auth()->user());
+            $user = auth()->user();
+
+            $view->with('user', [
+                'username' => $user->username,
+                'email' => $user->email,
+                'segment' => $user->segment(),
+            ]);
         });
 
         Route::macro('sentryTunnel', function ($withoutMiddleware = [], $path = 'sentry/tunnel') {
