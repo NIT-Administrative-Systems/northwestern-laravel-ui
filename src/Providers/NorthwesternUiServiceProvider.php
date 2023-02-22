@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
 use Laravel\Ui\UiCommand;
+use Northwestern\SysDev\UI\Helpers\UserContextGetter;
 use Northwestern\SysDev\UI\Http\Controllers\SentryTunnelController;
 use Northwestern\SysDev\UI\Presets\Northwestern;
 
@@ -38,6 +39,8 @@ class NorthwesternUiServiceProvider extends ServiceProvider
         }
 
         View::composer('northwestern::purple-chrome', function ($view) {
+            $userContextGetter = new UserContextGetter();
+
             $view->with('load_livewire', $this->app->bound('livewire'));
 
             $view->with('sentry_config', [
@@ -49,17 +52,7 @@ class NorthwesternUiServiceProvider extends ServiceProvider
                 'tracesSampleRate' => config('northwestern-theme.sentry-traces-sample-rate'),
             ]);
 
-            $user = auth()->user();
-
-            if (! $user) {
-                return;
-            }
-
-            $view->with('user', [
-                'username' => $user->username,
-                'email' => $user->email,
-                'segment' => $user->segment(),
-            ]);
+            $view->with('user', $userContextGetter->getUserContext());
         });
 
         Route::macro('sentryTunnel', function ($withoutMiddleware = [], $path = 'sentry/tunnel') {

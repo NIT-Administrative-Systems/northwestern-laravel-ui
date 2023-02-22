@@ -111,7 +111,11 @@
         @isset($user)
             const currentUser = @json($user);
 
-            Sentry.setUser(currentUser);
+            Sentry.setUser({
+                    username: currentUser.username,
+                    email: currentUser.email,
+                    segment: currentUser.segment
+            });
         @endisset
 
         const sentryConfig = @json($sentry_config);
