@@ -40,5 +40,10 @@
                 "Northwestern\\SysDev\\UI\\Providers\\NorthwesternUiServiceProvider"
             ]
         }
+    },
+    "config": {
+        "platform": {
+            "php": "7.4"
+        }
     }
 }
