@@ -211,3 +211,53 @@ Route::sentryTunnel('sentry/tunnel', [\App\Http\Middleware\VerifyCsrfToken::clas
 ```
 
 No further configuration should be required. The package will detect that the route has been configured and automatically add the `tunnel` parameter when initalizing the JavaScript SDK.
+
+### User Context
+Out of the box, the Sentry Laravel SDK will try to attach basic user information to errors and traces. The front-end JavaScript SDK cannot do this.
+
+To customize the user data captured for *both* the backend Laravel SDK *and* front-end JS SDK, provide a callback in your `AuthServiceProvider::boot()` method:
+
+```php
+class AuthServiceProvider extends ServiceProvider
+{
+    // ... other stuff
+    
+    public function boot()
+    {
+        // More other stuff...
+
+        NorthwesternUiServiceProvider::setSentryUserContext(function (?User $user) {
+            if (! $user) {
+                return [
+                    'ip' => request()->getClientIp(),
+                ];
+            }
+        
+            return [
+                'id' => $user->id,
+                'username' => $user->username,
+                'email' => $user->email,
+                'ip' => request()->getClientIp(),
+            ];
+        });
+    }
+}
+```
+
+This will automatically be enabled for the JS SDK, and you can verify by looking for that data on a page. 
+
+For the backend, a middleware should be added to the `App\Http\Kernel`'s web group.
+
+```php
+namespace App\Http;
+
+class Kernel extends HttpKernel
+{
+    protected $middlewareGroups = [
+        'web' => [
+            // . . . the other middleware . . .
+            \Northwestern\SysDev\UI\Http\Middleware\AddSentryContext::class,
+        ],
+    ];
+}
+```
