@@ -108,14 +108,8 @@
 
     @isset($sentry_config['dsn'])
     <script type="text/javascript">
-        @isset($user)
-            const currentUser = @json($user);
-
-            Sentry.setUser({
-                    username: currentUser.username,
-                    email: currentUser.email,
-                    segment: currentUser.segment
-            });
+        @isset($sentry_user_context)
+            Sentry.setUser(@json($sentry_user_context));
         @endisset
 
         const sentryConfig = @json($sentry_config);
