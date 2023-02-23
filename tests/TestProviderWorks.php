@@ -2,7 +2,8 @@
 
 namespace Northwestern\SysDev\UI\Tests;
 
-use Northwestern\SysDev\UI\Tests\TestCase;
+use Illuminate\Support\Str;
+use Northwestern\SysDev\UI\Providers\NorthwesternUiServiceProvider;
 
 class TestProviderWorks extends TestCase
 {
@@ -39,6 +40,31 @@ class TestProviderWorks extends TestCase
         $this->get(__METHOD__)
             ->assertOk()
             ->assertSee('Sentry.init')
+            ->assertDontSee('Sentry.setUser')
+            ->assertSee(config('northwestern-theme.sentry-dsn'));
+    }
+
+    /** @test */
+    public function sentry_user_context()
+    {
+        $this->app['config']->set('northwestern-theme.sentry-dsn', 'sentry-dsn-mocked-value-woohoo');
+
+        $this->app['router']->get(__METHOD__, function () {
+            return view('northwestern::demo-styles');
+        });
+
+        $uuid = Str::uuid();
+        NorthwesternUiServiceProvider::setSentryUserContext(function ($user) use ($uuid) {
+            return [
+                'foo' => $uuid,
+            ];
+        });
+
+        $this->get(__METHOD__)
+            ->assertOk()
+            ->assertSee('Sentry.init')
+            ->assertSee('Sentry.setUser')
+            ->assertSee($uuid)
             ->assertSee(config('northwestern-theme.sentry-dsn'));
     }
 }

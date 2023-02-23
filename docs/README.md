@@ -71,6 +71,24 @@ Route::get('/demo', function () {
 ```
 
 ## Upgrading
+### v1.8.0
+This release adds a middleware for providing more user context and allows you to send APM data to Sentry.
+
+Review [the section on Sentry](usage.md#sentry) to learn how to configure the new functionality.
+
+The `config/sentry.php` file has been updated and has the following new options, which you should add to your config:
+
+```php
+return [
+    // . . . the existing options . . .
+    
+    'sentry-enable-apm-js' => env('SENTRY_ENABLE_APM_FOR_JS', true),
+    'sentry-traces-sample-rate' => env('SENTRY_TRACES_SAMPLE_RATE', 0.0),
+];
+```
+
+The JS `@sentry/tracing` package should be installed for tracing.
+
 ### v1.7.0
 This release adds a controller for Sentry's JavaScript browser SDK to tunnel through.
 
