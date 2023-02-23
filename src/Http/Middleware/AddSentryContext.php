@@ -16,9 +16,8 @@ class AddSentryContext
             return $next($request);
         }
 
-        $context = $contextBuilder($request->user());
-        \Sentry\configureScope(function (Scope $scope) use ($context) {
-                $scope->setUser($context);
+        \Sentry\configureScope(function (Scope $scope) use ($request, $contextBuilder) {
+            $scope->setUser($contextBuilder($request->user()));
         });
 
         return $next($request);
