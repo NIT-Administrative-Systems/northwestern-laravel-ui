@@ -54,7 +54,7 @@ class TestProviderWorks extends TestCase
         });
 
         $uuid = Str::uuid();
-        NorthwesternUiServiceProvider::setSentryUserContext(function (mixed $user) use ($uuid) {
+        NorthwesternUiServiceProvider::setSentryUserContext(function ($user) use ($uuid) {
             return [
                 'foo' => $uuid,
             ];
