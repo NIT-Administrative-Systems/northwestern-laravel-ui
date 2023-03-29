@@ -7,8 +7,8 @@
 
 </ul>
 
-<div class='mt-2 mt-md-0 ml-auto'>
-    <ul class="navbar-nav mr-auto">
+<div class='mt-2 mt-md-0 ms-auto'>
+    <ul class="navbar-nav me-auto">
         @auth
         <li class='nav-item'>
             <span class='nav-link'>{{ auth()->user()->getNetId() }}</span>
