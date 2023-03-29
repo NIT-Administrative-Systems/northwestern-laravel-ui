@@ -14,9 +14,9 @@ For the most part, the purple-ization is rolled out across all Bootstrap compone
 
 In order to use this package, you must:
 
-- Be on Laravel 7+
+- Be on Laravel 10+
 - Use Yarn to manage your JS/CSS dependencies
-- Use [Laravel Mix](https://laravel.com/docs/7.x/mix) to bundle your assets
+- Use [Laravel Vite](https://laravel.com/docs/10.x/vite) to bundle your assets
 
 ## Installation
 Install the package via composer, and then swap to the Northwestern preset. This works like the [standard Laravel UI presets](https://laravel.com/docs/7.x/frontend).
@@ -71,6 +71,13 @@ Route::get('/demo', function () {
 ```
 
 ## Upgrading
+### v2.0.0
+This version drops support for Laravel Mix and Bootstrap 4. Laravel Vite and Bootstrap 5 are supported, and the layout has been adjusted accordingly.
+
+There is an upgrade guide from [Laravel Mix](https://github.com/laravel/vite-plugin/blob/main/UPGRADE.md#migrating-from-laravel-mix-to-vite) that should be reviewed if upgrading to this package. The [assets ejected into your `resources/` folder](https://github.com/NIT-Administrative-Systems/northwestern-laravel-ui/tree/develop/src/Presets) should be updated.
+
+The [Bootstrap 5 upgrade guide](https://getbootstrap.com/docs/5.2/migration/) should be reviewed. There are significant changes between Bootstrap v4 and v5.
+
 ### v1.9.0
 This version adds support for Laravel 10 and drops support for PHP 7.4 and 8.0. The minimum required version is PHP 8.1.
 
