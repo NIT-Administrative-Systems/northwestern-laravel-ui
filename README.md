@@ -4,6 +4,7 @@ Adds a Northwestern Bootstrap theme & layout into your Laravel application.
 ## Installation & Usage
 For installation instructions and more, please check out the documentation at https://nit-administrative-systems.github.io/northwestern-laravel-ui/.
 
+**Note**: v1.x of this package supports Laravel 7-10, Laravel Mix, and Bootstrap 4. If you want to continue using those, please do not upgrade to v2.x!
 
 ## Contributing
 If you'd like to contribute to the library, you are welcome to submit a pull request!
