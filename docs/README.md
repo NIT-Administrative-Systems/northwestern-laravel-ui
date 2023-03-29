@@ -71,6 +71,9 @@ Route::get('/demo', function () {
 ```
 
 ## Upgrading
+### v1.9.0
+This version adds support for Laravel 10 and drops support for PHP 7.4 and 8.0. The minimum required version is PHP 8.1.
+
 ### v1.8.0
 This release adds a middleware for providing more user context and allows you to send APM data to Sentry.
 
