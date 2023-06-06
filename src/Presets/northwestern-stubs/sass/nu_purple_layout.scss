@@ -159,4 +159,8 @@ h4.head-section .btn-sm {
 //This overrides bootstrap default [color: hsla(0,0%,100%,.5);] for accessibility reasons
 .navbar-dark .navbar-nav .nav-link {
     color: hsla(0,0%,100%,.6);
+    
+    &.active {
+        color: #fff;
+    }
 }
