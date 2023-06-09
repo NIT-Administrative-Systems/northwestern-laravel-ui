@@ -12,12 +12,9 @@ use Illuminate\Contracts\Foundation\Application;
  */
 abstract class GlobalAlert
 {
-    protected Application $app;
-
-    public function __construct(Application $app)
-    {
-        $this->app = $app;
-    }
+     public function __construct(
+        protected Application $app
+    ){}
 
     /**
      * Determines whether the global alert associated with this handler is currently active.
