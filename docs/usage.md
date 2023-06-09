@@ -156,7 +156,7 @@ As an example, here is a global alert that is shown when the user is impersonati
 ```php{5-8,10-22}
 class UserImpersonatedGlobalAlert extends GlobalAlert
 {
-    // . . . Other class getDetails
+    // . . . Other class details
 
     public function isActive(): bool
     {
