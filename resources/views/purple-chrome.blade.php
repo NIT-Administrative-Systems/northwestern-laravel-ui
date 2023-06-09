@@ -17,6 +17,8 @@
   <body class="{{ isset($bodyClasses) ? $bodyClasses : 'd-flex flex-column min-vh-100' }}" {!! isset($bodyAttributes) ? $bodyAttributes : '' !!}>
 
     <div class="flex-grow-1" id="app">
+        @include('northwestern::global-alert')
+
         <nav class="navbar navbar-inverse bg-dark-purple" aria-label="Logo">
             <div class="container-fluid">
                 <a class="navbar-brand" href="/">

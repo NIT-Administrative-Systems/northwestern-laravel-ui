@@ -17,4 +17,8 @@ return [
     'sentry-dsn' => env('SENTRY_LARAVEL_DSN', env('SENTRY_DSN')),
     'sentry-enable-apm-js' => env('SENTRY_ENABLE_APM_FOR_JS', true),
     'sentry-traces-sample-rate' => env('SENTRY_TRACES_SAMPLE_RATE', 0.0),
+
+    'globalAlerts' => [
+        //
+    ],
 ];

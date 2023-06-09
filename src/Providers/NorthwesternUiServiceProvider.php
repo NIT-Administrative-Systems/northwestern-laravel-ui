@@ -88,6 +88,14 @@ class NorthwesternUiServiceProvider extends ServiceProvider
             if ($contextBuilder) {
                 $view->with('sentry_user_context', $contextBuilder(auth()->user()));
             }
+
+            foreach (config('northwestern-theme.globalAlerts') as $alertClass) {
+                $alert = new $alertClass(app());
+                if ($alert->isActive()) {
+                    $view->with('activeAlert', $alert->getDetails()->toArray());
+                    break;
+                }
+            }
         });
 
         Route::macro('sentryTunnel', function ($withoutMiddleware = [], $path = 'sentry/tunnel') {
