@@ -145,6 +145,50 @@ It has some boilerplate text and an icon, giving you a standard look for form va
 ## Flash Messages
 [Flash messages](https://laravel.com/docs/7.x/session#flash-data) for the `status` key will be displayed automatically by both layouts.
 
+## Global Alerts
+Global Alerts allow you to display a message at the top of every page. This can be useful for planned outages, announcements, or other important information.
+
+### Creating a Global Alert
+To introduce a global alert, create a class that extends `GlobalAlert` and fill in the `isActive` and `getDetails` methods. `isActive()` should return `true` if the alert should be shown. `getDetails()` should return a `GlobalAlertDetails` object with the message and [Bootstrap contextual style](https://getbootstrap.com/docs/5.0/components/alerts/#examples).
+
+As an example, here is a global alert that is shown when the user is impersonating another user:
+
+```php{5-8,10-22}
+class UserImpersonatedGlobalAlert extends GlobalAlert
+{
+    // . . . Other class details
+
+    public function isActive(): bool
+    {
+        return is_impersonating();
+    }
+
+    public function getDetails(): GlobalAlertDetails
+    {
+        $username = auth()->user()->full_name ?? auth()->user()->username;
+        $message = <<<HTML
+            <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+            Impersonating user • <span class="fw-bold">$username</span>
+        HTML;
+
+        return new GlobalAlertDetails(
+            message: $message,
+            style: 'danger',
+        );
+    }
+}
+```
+
+### Registering a Global Alert
+
+To register a global alert, add it to the `globalAlerts` array in the published configuration file. The order of the array determines the priority of the alerts. Only the first alert that is active will be shown.
+
+```php
+'globalAlerts' => [
+    App\Domains\User\Helpers\UserImpersonatedGlobalAlert::class,
+],
+```
+
 ## Javascript
 The best practice for including Javascript in a page is to put it at the very bottom of the `<body>` element. The layouts support this by rendering [the `scripts` stack](https://laravel.com/docs/7.x/blade#stacks).
 

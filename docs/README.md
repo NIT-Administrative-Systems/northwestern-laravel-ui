@@ -71,6 +71,13 @@ Route::get('/demo', function () {
 ```
 
 ## Upgrading
+### v2.1.0
+This release introduces a Global Alert component and fixes some Bootstrap 5 compatibility issues.
+
+See [the section on Global Alerts](usage.md#global-alerts) for more information on using this feature.
+
+There are no breaking changes in this release.
+
 ### v2.0.0
 This version drops support for Laravel Mix and Bootstrap 4. Laravel Vite and Bootstrap 5 are supported, and the layout has been adjusted accordingly.
 
