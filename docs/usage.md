@@ -143,7 +143,27 @@ It has some boilerplate text and an icon, giving you a standard look for form va
 ![Form validation summary](./assets/error.png)
 
 ## Flash Messages
-[Flash messages](https://laravel.com/docs/7.x/session#flash-data) for the `status` key will be displayed automatically by both layouts.
+[Flash messages](https://laravel.com/docs/10.x/session#flash-data) are used to provide feedback to the user and will be displayed automatically by both layouts.
+
+The following flash keys are supported:
+
+- `status-info`
+- `status-success`
+- `status-warning`
+- `status-danger`
+- `status`
+
+By default, if only the `status` key is set, it will be displayed as an informational message (i.e., `status-info`).
+
+Each flash key corresponds to a specific [Bootstrap contextual style](https://getbootstrap.com/docs/5.0/components/alerts/#examples) and a [FontAwesome](https://fontawesome.com/v6/search) icon:
+
+| Flash Key        | Bootstrap Style | FontAwesome Icon                                                                                     |
+|------------------|-----------------|------------------------------------------------------------------------------------------------------|
+| `status-info`    | `alert-info`    | [`fa-circle-info`](https://fontawesome.com/v6/icons/circle-info?f=classic&s=solid)                   |
+| `status-success` | `alert-success` | [`fa-circle-check`](https://fontawesome.com/v6/icons/circle-check?f=classic&s=solid)                 |
+| `status-warning` | `alert-warning` | [`fa-triangle-exclamation`](https://fontawesome.com/v6/icons/triangle-exclamation?f=classic&s=solid) |
+| `status-danger`  | `alert-danger`  | [`fa-circle-exclamation`](https://fontawesome.com/v6/icons/circle-exclamation?f=classic&s=solid)     |
+| `status`         | `alert-info`    | [`fa-circle-info`](https://fontawesome.com/v6/icons/circle-info?f=classic&s=solid)                   |
 
 ## Global Alerts
 Global Alerts allow you to display a message at the top of every page. This can be useful for planned outages, announcements, or other important information.
