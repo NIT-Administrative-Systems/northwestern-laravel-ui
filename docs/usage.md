@@ -153,7 +153,7 @@ The following flash keys are supported:
 - `status-danger`
 - `status`
 
-By default, if only the `status` key is set, it will be displayed as an informational message (i.e., `status-info`).
+By default, if only the `status` key is set, it will be displayed as an informational message (i.e., `alert-info`).
 
 Each flash key corresponds to a specific [Bootstrap contextual style](https://getbootstrap.com/docs/5.0/components/alerts/#examples) and a [FontAwesome](https://fontawesome.com/v6/search) icon:
 
