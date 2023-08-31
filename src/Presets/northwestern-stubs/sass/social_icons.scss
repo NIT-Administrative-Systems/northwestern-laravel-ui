@@ -16,17 +16,9 @@
   background: url("https://common.northwestern.edu/v8/css/images/icons/social-media-icons.png");
   background-position: 0 0;
 }
+
 .facebook:hover {
   background-position: 0 39px;
-}
-
-.twitter {
-  background-image: url("https://common.northwestern.edu/v8/css/images/icons/social-media-icons.png");
-  background-position: -39px 0;
-}
-
-.twitter:hover {
-  background-position: -39px 39px;
 }
 
 .instagram {
@@ -36,4 +28,13 @@
 
 .instagram:hover {
   background-position: -78px 39px;
+}
+
+.youtube {
+  background-image: url("https://common.northwestern.edu/v8/css/images/icons/social-media-icons.png");
+  background-position: -156px 0;
+}
+
+.youtube:hover {
+    background-position: -156px 39px;
 }
