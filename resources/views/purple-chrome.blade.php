@@ -101,8 +101,8 @@
         <div class="col-md-2">
             <p>Social Media</p>
             <a href='https://www.facebook.com/NorthwesternU' class='social facebook'>Facebook</a>
-            <a href='http://www.twitter.com/northwesternu' class='social twitter'>Twitter</a>
             <a href='https://instagram.com/northwesternu' class='social instagram'>Instagram</a>
+            <a href='https://www.youtube.com/user/NorthwesternU' class='social youtube'>YouTube</a>
         </div>
       </div>
 
