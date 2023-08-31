@@ -70,7 +70,7 @@
                 <li><a href='https://www.northwestern.edu/hr/careers/'>Careers</a></li>
                 <li><a href='https://www.northwestern.edu/disclaimer.html'>Disclaimer</a></li>
                 <li><a href='https://www.northwestern.edu/emergency/index.html'>Campus Emergency Information</a></li>
-                <li><a href='https://policies.northwestern.edu/'>University Police</a></li>
+                <li><a href='https://policies.northwestern.edu/'>University Policies</a></li>
                 <li><a href='https://www.northwestern.edu/accessibility/about/report-accessibility-issue.html'>Report an Accessibility Issue</a></li>
             </ul>
         </div>

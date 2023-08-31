@@ -46,21 +46,21 @@ $errors = new Illuminate\Support\MessageBag(['first_name' => 'The first name fie
         <span class="badge badge-secondary badge-pill">3</span>
         </h4>
         <ul class="list-group mb-3">
-        <li class="list-group-item d-flex justify-content-between lh-condensed">
+        <li class="list-group-item d-flex justify-content-between lh-sm">
             <div>
             <h6 class="my-0">Product name</h6>
             <small class="text-muted">Brief description</small>
             </div>
             <span class="text-muted">$12</span>
         </li>
-        <li class="list-group-item d-flex justify-content-between lh-condensed">
+        <li class="list-group-item d-flex justify-content-between lh-sm">
             <div>
             <h6 class="my-0">Second product</h6>
             <small class="text-muted">Brief description</small>
             </div>
             <span class="text-muted">$8</span>
         </li>
-        <li class="list-group-item d-flex justify-content-between lh-condensed">
+        <li class="list-group-item d-flex justify-content-between lh-sm">
             <div>
             <h6 class="my-0">Third item</h6>
             <small class="text-muted">Brief description</small>
@@ -83,9 +83,7 @@ $errors = new Illuminate\Support\MessageBag(['first_name' => 'The first name fie
         <form class="card p-2">
         <div class="input-group">
             <input type="text" class="form-control" placeholder="Promo code">
-            <div class="input-group-append">
             <button type="submit" class="btn btn-secondary">Redeem</button>
-            </div>
         </div>
         </form>
     </div>
@@ -114,9 +112,7 @@ $errors = new Illuminate\Support\MessageBag(['first_name' => 'The first name fie
         <div class="mb-3">
             <label for="username" class="required">Username</label>
             <div class="input-group">
-            <div class="input-group-prepend">
                 <span class="input-group-text">@</span>
-            </div>
             <input type="text" class="form-control" id="username" placeholder="Username" required>
             <div class="invalid-feedback" style="width: 100%;">
                 Your username is required.
@@ -148,7 +144,7 @@ $errors = new Illuminate\Support\MessageBag(['first_name' => 'The first name fie
         <div class="row">
             <div class="col-md-5 mb-3">
             <label for="country" class="required">Country</label>
-            <select class="custom-select d-block w-100" id="country" required>
+            <select class="form-select" id="country" required>
                 <option value="">Choose...</option>
                 <option>United States</option>
             </select>
@@ -158,7 +154,7 @@ $errors = new Illuminate\Support\MessageBag(['first_name' => 'The first name fie
             </div>
             <div class="col-md-4 mb-3">
             <label for="state" class="required">State</label>
-            <select class="custom-select d-block w-100" id="state" required>
+            <select class="form-select" id="state" required>
                 <option value="">Choose...</option>
                 <option>California</option>
             </select>
@@ -175,30 +171,30 @@ $errors = new Illuminate\Support\MessageBag(['first_name' => 'The first name fie
             </div>
         </div>
         <hr class="mb-4">
-        <div class="custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input" id="same-address">
-            <label class="custom-control-label" for="same-address">Shipping address is the same as my billing address</label>
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="same-address">
+            <label class="form-check-label" for="same-address">Shipping address is the same as my billing address</label>
         </div>
-        <div class="custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input" id="save-info">
-            <label class="custom-control-label" for="save-info">Save this information for next time</label>
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="save-info">
+            <label class="form-check-label" for="save-info">Save this information for next time</label>
         </div>
         <hr class="mb-4">
 
         <h4 class="mb-3">Payment</h4>
 
         <div class="d-block my-3">
-            <div class="custom-control custom-radio">
-            <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
-            <label class="custom-control-label" for="credit">Credit card</label>
+            <div class="form-check">
+                <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked required>
+                <label class="form-check-label" for="credit">Credit card</label>
             </div>
-            <div class="custom-control custom-radio">
-            <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required>
-            <label class="custom-control-label" for="debit">Debit card</label>
+            <div class="form-check">
+                <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required>
+                <label class="form-check-label" for="debit">Debit card</label>
             </div>
-            <div class="custom-control custom-radio">
-            <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required>
-            <label class="custom-control-label" for="paypal">PayPal</label>
+            <div class="form-check">
+                <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required>
+                <label class="form-check-label" for="paypal">PayPal</label>
             </div>
         </div>
         <div class="row">
@@ -371,7 +367,7 @@ $errors = new Illuminate\Support\MessageBag(['first_name' => 'The first name fie
     </table>
 </div>
 <div class="d-flex justify-content-end">
-    {{ new \Illuminate\Pagination\LengthAwarePaginator([], 1000, 25, 3) }}
+    {{ new \Illuminate\Pagination\LengthAwarePaginator(collect(range(51, 75)), 1000, 25, 3) }}
 </div>
 
 @endsection

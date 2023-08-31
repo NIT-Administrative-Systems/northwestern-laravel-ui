@@ -1,0 +1,25 @@
+# Changelog
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/).
+
+## [Unreleased]
+
+### Added
+- Support for additional flash keys with contextual styling.
+
+### Fixed
+- Corrected a misspelling of `Police` to `Policies` in the footer.
+- Bootstrap 5 compatability issues with the `demo-styles` view.
+- Alignment issues with the `northwestern::errors` component.
+
+## [v2.1.0] - 2023-06-13
+
+### Added
+- **Global Alert** component.
+
+### Changed
+- Defined the text color for the `.nav-link:active` state.
+
+### Fixed
+- Updated the namespace on a Bootstrap 5 data attribute in the `northwestern::flash` component.
