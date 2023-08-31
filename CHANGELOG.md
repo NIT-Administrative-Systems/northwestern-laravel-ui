@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+## [v2.2.0] - 2023-08-31
+
 ### Added
 - Support for additional flash keys with contextual styling.
 - A YouTube icon is now included in the footer.
