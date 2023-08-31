@@ -3,6 +3,7 @@
 namespace Northwestern\SysDev\UI\Providers;
 
 use Closure;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
@@ -48,6 +49,8 @@ class NorthwesternUiServiceProvider extends ServiceProvider
 
     public function register()
     {
+        Paginator::useBootstrapFive();
+
         $this->mergeConfigFrom(__DIR__.'/../../config/northwestern-theme.php', 'northwestern-theme');
     }
 
