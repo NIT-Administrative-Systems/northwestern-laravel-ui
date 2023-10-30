@@ -11,7 +11,7 @@
     <link href="https://common.northwestern.edu/v8/icons/favicon-32.png" rel="icon" sizes="32x32" type="image/png">
 
     @if ($livewire['enabled'])
-        @if(!$liveire['inject_assets'])
+        @if(!$livewire['inject_assets'])
             @livewireStyles()
         @endif
     @endif
@@ -113,7 +113,7 @@
     @if ($livewire['enabled'])
         @if(version_compare($livewire['version'], '3.0.0', '<'))
             @livewireScripts()
-        @elseif(!$liveire['inject_assets'])
+        @elseif(!$livewire['inject_assets'])
             @livewireScriptConfig
         @endif
     @endif
