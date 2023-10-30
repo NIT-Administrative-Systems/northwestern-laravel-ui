@@ -79,7 +79,7 @@ class NorthwesternUiServiceProvider extends ServiceProvider
         View::composer('northwestern::purple-chrome', function ($view) {
             $view->with('livewire', [
                 'enabled' => $this->app->bound('livewire'),
-                'version' => InstalledVersions::getVersion('livewire/livewire'),
+                'version' => $this->getLivewireVersion(),
                 'inject_assets' => config('livewire.inject_assets', false),
             ]);
 
@@ -111,5 +111,14 @@ class NorthwesternUiServiceProvider extends ServiceProvider
                 ->withoutMiddleware($withoutMiddleware)
                 ->name('sentry.tunnel');
         });
+    }
+
+    private function getLivewireVersion(): ?string
+    {
+        try {
+            return InstalledVersions::getVersion('livewire/livewire');
+        } catch (\OutOfBoundsException) {
+            return null;
+        }
     }
 }
