@@ -257,6 +257,23 @@ If the package detects [Livewire](https://laravel-livewire.com) is installed, th
 
 This setup is automatic and does not require anything to be done beyond installing the package.
 
+:::danger Livewire v3
+
+Starting in Livewire v3, Alpine and Livewire assets are automatically injected into the layout. If you wish to customize the order in which these libraries are loaded or register Alpine plugins, follow these steps to prevent this package from additionally injecting the assets:
+
+1. Set `inject_assets` to `false` in `config/livewire.php`.
+2. Manually bundle Alpine and Livewire in the `app.js` file:
+    ```js
+    import { Livewire, Alpine } from '../../vendor/livewire/livewire/dist/livewire.esm';
+    import ExamplePlugin from '@test/alpine-example-plugin';
+   
+    Alpine.plugin(ExamplePlugin);
+   
+    Livewire.start();
+    ```
+
+:::
+
 ## Sentry
 If a Sentry DSN environment variable is detected, the layout will automatically initialize the Sentry browser SDK to capture client-side JavaScript errors.
 
