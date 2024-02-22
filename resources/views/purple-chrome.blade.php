@@ -124,7 +124,7 @@
             const sentryConfig = @json($sentry_config);
 
             @if($sentry_config['enable_apm'])
-                sentryConfig.integrations.push(new BrowserTracing())
+                sentryConfig.integrations.push(Sentry.browserTracingIntegration())
             @endif
 
             Sentry.init(sentryConfig);

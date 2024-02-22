@@ -22,8 +22,7 @@ class Northwestern extends Presets\Preset
     {
         return [
             '@fortawesome/fontawesome-free' => '^6.4.0',
-            '@sentry/browser' => '^7.38.0',
-            '@sentry/tracing' => '^7.30.0',
+            '@sentry/browser' => '^7.100.0',
         ] + $packages;
     }
 
