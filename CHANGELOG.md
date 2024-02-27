@@ -5,11 +5,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+## [v3.0.0] - 2024-02-27
 ### Breaking Change
 This release now requires the underlying [Sentry PHP SDK v4.0](https://github.com/getsentry/sentry-php). Please refer to the PHP SDK [sentry-php/UPGRADE-4.0.md](https://github.com/getsentry/sentry-php/blob/master/UPGRADE-4.0.md) guide for a complete list of breaking changes.
 
 - `@sentry/browser` should be updated to a minimum version of `7.100.0`. Please refer to the [migration guide](https://github.com/getsentry/sentry-javascript/blob/develop/MIGRATION.md) for a complete list of breaking changes.
-  - If you are using the `resources/js/sentry.js` file from this package, [review the new version](./src/Presets/northwestern-stubs/js/sentry.js). 
+  - If you are using the `resources/js/sentry.js` file from this package, [review the new version](https://github.com/NIT-Administrative-Systems/northwestern-laravel-ui/blob/033827623529e44239491e264c1c2f5b54c7075f/src/Presets/northwestern-stubs/js/sentry.js). 
 - `@sentry/tracing` is no longer required and can be removed from your project if it is not otherwise used.
 
 ## [v2.2.0] - 2023-08-31
