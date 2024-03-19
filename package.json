@@ -4,6 +4,11 @@
         "docs:build": "vuepress build docs"
     },
     "devDependencies": {
-        "vuepress": "^1.1.0"
+        "@vuepress/bundler-vite": "2.0.0-rc.8",
+        "@vuepress/theme-default": "2.0.0-rc.20",
+        "vue": "^3.4.21",
+        "vuepress": "2.0.0-rc.8",
+        "vuepress-plugin-md-enhance": "2.0.0-rc.31",
+        "vuepress-plugin-search-pro": "2.0.0-rc.31"
     }
 }
