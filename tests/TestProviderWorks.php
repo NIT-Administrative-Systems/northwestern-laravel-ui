@@ -2,12 +2,13 @@
 
 namespace Northwestern\SysDev\UI\Tests;
 
+use PHPUnit\Framework\Attributes\Test;
 use Illuminate\Support\Str;
 use Northwestern\SysDev\UI\Providers\NorthwesternUiServiceProvider;
 
 class TestProviderWorks extends TestCase
 {
-    /** @test */
+    #[Test]
     public function config_loads()
     {
         // Makes sure the provider is working
@@ -15,7 +16,7 @@ class TestProviderWorks extends TestCase
         $this->assertNotNull(config('northwestern-theme.lockup'));
     }
 
-    /** @test */
+    #[Test]
     public function renders()
     {
         $this->app['router']->get(__METHOD__, function () {
@@ -28,7 +29,7 @@ class TestProviderWorks extends TestCase
             ->assertDontSee('Sentry.init');
     }
 
-    /** @test */
+    #[Test]
     public function sentry_configured()
     {
         $this->app['config']->set('northwestern-theme.sentry-dsn', 'sentry-dsn-mocked-value-woohoo');
@@ -44,7 +45,7 @@ class TestProviderWorks extends TestCase
             ->assertSee(config('northwestern-theme.sentry-dsn'));
     }
 
-    /** @test */
+    #[Test]
     public function sentry_user_context()
     {
         $this->app['config']->set('northwestern-theme.sentry-dsn', 'sentry-dsn-mocked-value-woohoo');
