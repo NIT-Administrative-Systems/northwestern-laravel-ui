@@ -22,7 +22,7 @@
         "sentry/sdk": "^4"
     },
     "require-dev": {
-        "orchestra/testbench": "^8.0",
+        "orchestra/testbench": "^9.0",
         "phpunit/phpunit": "^10.0",
         "php-coveralls/php-coveralls": "^2.4"
     },
@@ -45,7 +45,7 @@
     },
     "config": {
         "platform": {
-            "php": "8.1"
+            "php": "8.2"
         },
         "allow-plugins": {
             "php-http/discovery": true
