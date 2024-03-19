@@ -6,7 +6,7 @@ use PHPUnit\Framework\Attributes\Test;
 use Illuminate\Support\Str;
 use Northwestern\SysDev\UI\Providers\NorthwesternUiServiceProvider;
 
-class TestProviderWorks extends TestCase
+final class TestProviderWorks extends TestCase
 {
     #[Test]
     public function config_loads(): void
