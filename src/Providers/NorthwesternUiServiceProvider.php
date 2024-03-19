@@ -3,6 +3,7 @@
 namespace Northwestern\SysDev\UI\Providers;
 
 use Closure;
+use Composer\InstalledVersions;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
@@ -76,7 +77,11 @@ class NorthwesternUiServiceProvider extends ServiceProvider
         }
 
         View::composer('northwestern::purple-chrome', function ($view) {
-            $view->with('load_livewire', $this->app->bound('livewire'));
+            $view->with('livewire', [
+                'enabled' => $this->app->bound('livewire'),
+                'version' => $this->getLivewireVersion(),
+                'inject_assets' => config('livewire.inject_assets', false),
+            ]);
 
             $view->with('sentry_config', [
                 'dsn' => config('northwestern-theme.sentry-dsn'),
@@ -106,5 +111,14 @@ class NorthwesternUiServiceProvider extends ServiceProvider
                 ->withoutMiddleware($withoutMiddleware)
                 ->name('sentry.tunnel');
         });
+    }
+
+    private function getLivewireVersion(): ?string
+    {
+        try {
+            return InstalledVersions::getVersion('livewire/livewire');
+        } catch (\OutOfBoundsException) {
+            return null;
+        }
     }
 }

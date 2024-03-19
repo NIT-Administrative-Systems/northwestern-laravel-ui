@@ -10,8 +10,10 @@
     <link href="https://common.northwestern.edu/v8/icons/favicon-16.png" rel="icon" sizes="16x16" type="image/png">
     <link href="https://common.northwestern.edu/v8/icons/favicon-32.png" rel="icon" sizes="32x32" type="image/png">
 
-    @if ($load_livewire)
-    @livewireStyles()
+    @if ($livewire['enabled'])
+        @if(!$livewire['inject_assets'])
+            @livewireStyles()
+        @endif
     @endif
   </head>
   <body class="{{ isset($bodyClasses) ? $bodyClasses : 'd-flex flex-column min-vh-100' }}" {!! isset($bodyAttributes) ? $bodyAttributes : '' !!}>
@@ -108,8 +110,12 @@
 
     </footer>
 
-    @if ($load_livewire)
-        @livewireScripts()
+    @if ($livewire['enabled'])
+        @if(version_compare($livewire['version'], '3.0.0', '<'))
+            @livewireScripts()
+        @elseif(!$livewire['inject_assets'])
+            @livewireScriptConfig
+        @endif
     @endif
 
     @vite(['resources/js/app.js'])
