@@ -1,10 +1,11 @@
 <?php
 
-namespace Northwestern\SysDev\UI\Tests;
+namespace Northwestern\SysDev\UI\Tests\Feature;
 
-use PHPUnit\Framework\Attributes\Test;
 use Illuminate\Support\Str;
 use Northwestern\SysDev\UI\Providers\NorthwesternUiServiceProvider;
+use Northwestern\SysDev\UI\Tests\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 
 final class TestProviderWorks extends TestCase
 {
