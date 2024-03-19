@@ -9,7 +9,7 @@ use Northwestern\SysDev\UI\Providers\NorthwesternUiServiceProvider;
 class TestProviderWorks extends TestCase
 {
     #[Test]
-    public function config_loads()
+    public function config_loads(): void
     {
         // Makes sure the provider is working
         // It's not much, but we can't really test a huge heap of views?
@@ -17,7 +17,7 @@ class TestProviderWorks extends TestCase
     }
 
     #[Test]
-    public function renders()
+    public function renders(): void
     {
         $this->app['router']->get(__METHOD__, function () {
             return view('northwestern::demo-styles');
@@ -30,7 +30,7 @@ class TestProviderWorks extends TestCase
     }
 
     #[Test]
-    public function sentry_configured()
+    public function sentry_configured(): void
     {
         $this->app['config']->set('northwestern-theme.sentry-dsn', 'sentry-dsn-mocked-value-woohoo');
 
@@ -46,7 +46,7 @@ class TestProviderWorks extends TestCase
     }
 
     #[Test]
-    public function sentry_user_context()
+    public function sentry_user_context(): void
     {
         $this->app['config']->set('northwestern-theme.sentry-dsn', 'sentry-dsn-mocked-value-woohoo');
 
