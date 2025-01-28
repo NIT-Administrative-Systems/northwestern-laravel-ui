@@ -20,11 +20,11 @@ final class TestProviderWorks extends TestCase
     #[Test]
     public function renders(): void
     {
-        $this->app['router']->get(__METHOD__, function () {
+        $this->app['router']->get(__FUNCTION__, function () {
             return view('northwestern::demo-styles');
         });
 
-        $this->get(__METHOD__)
+        $this->get(__FUNCTION__)
             ->assertOk()
             ->assertSeeText(config('northwestern-theme.office.phone'))
             ->assertDontSee('Sentry.init');
@@ -35,11 +35,11 @@ final class TestProviderWorks extends TestCase
     {
         $this->app['config']->set('northwestern-theme.sentry-dsn', 'sentry-dsn-mocked-value-woohoo');
 
-        $this->app['router']->get(__METHOD__, function () {
+        $this->app['router']->get(__FUNCTION__, function () {
             return view('northwestern::demo-styles');
         });
 
-        $this->get(__METHOD__)
+        $this->get(__FUNCTION__)
             ->assertOk()
             ->assertSee('Sentry.init')
             ->assertDontSee('Sentry.setUser')
@@ -51,7 +51,7 @@ final class TestProviderWorks extends TestCase
     {
         $this->app['config']->set('northwestern-theme.sentry-dsn', 'sentry-dsn-mocked-value-woohoo');
 
-        $this->app['router']->get(__METHOD__, function () {
+        $this->app['router']->get(__FUNCTION__, function () {
             return view('northwestern::demo-styles');
         });
 
@@ -62,7 +62,7 @@ final class TestProviderWorks extends TestCase
             ];
         });
 
-        $this->get(__METHOD__)
+        $this->get(__FUNCTION__)
             ->assertOk()
             ->assertSee('Sentry.init')
             ->assertSee('Sentry.setUser')
