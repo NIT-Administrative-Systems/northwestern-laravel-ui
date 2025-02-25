@@ -71,6 +71,18 @@ Route::get('/demo', function () {
 ```
 
 ## Upgrading
+### v4.0.0
+When upgrading to this version, you should update the `nu_fonts.scss` file. The Campton family of fonts is no longer licensed for web use and has been removed from `common.northwestern.edu`.
+
+You should update the `resources/sass/nu_fonts.scss` file to match [the latest version](https://github.com/NIT-Administrative-Systems/northwestern-laravel-ui/blob/v4.0.0/src/Presets/northwestern-stubs/sass/nu_fonts.scss).
+
+The layout itself does not use Campton, but your application may have used it. Check for references to `Campton` in your stylesheets and swap them to Poppins. 
+
+| Old Family         | New Family          |
+|--------------------|---------------------|
+| Campton Book       | Poppins Extra Light |
+| All other Camptons | Poppins Bold        |
+
 ### v3.0.0
 This version requires a higher version of the Sentry SDK and contains some breaking changes:
 
