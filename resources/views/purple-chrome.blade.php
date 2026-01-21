@@ -15,6 +15,8 @@
             @livewireStyles()
         @endif
     @endif
+
+    @stack('swaggerScripts')
   </head>
   <body class="{{ isset($bodyClasses) ? $bodyClasses : 'd-flex flex-column min-vh-100' }}" {!! isset($bodyAttributes) ? $bodyAttributes : '' !!}>
 
