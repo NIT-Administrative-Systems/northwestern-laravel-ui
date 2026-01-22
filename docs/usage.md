@@ -210,7 +210,32 @@ To register a global alert, add it to the `globalAlerts` array in the published 
 ```
 
 ## Javascript
-The best practice for including Javascript in a page is to put it at the very bottom of the `<body>` element. The layouts support this by rendering [the `scripts` stack](https://laravel.com/docs/7.x/blade#stacks).
+
+### In `<head>`
+Modern Javascript libraries -- particularly bundles prepared by Laravel Vite -- and additional stylesheets should be included in the `<head>` tag. Other tags, like meta or OpenGraph tags, can be included here as well.
+
+```blade
+@extends('northwestern::purple-container')
+
+@stack('headScripts')
+@vite('extra-code.js')
+
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://common.northwestern.edu/article-splash.webp">
+@endstack
+
+@section('heading')
+<h2>Northwestern Bootstrap Theme</h2>
+@endsection
+
+@section('content')
+<p>Hello world!</p>
+@endsection
+```
+
+
+### Bottom of the `<body>`
+Older libraries may recommend including Javascript in the page by putting it at the very bottom of the `<body>` element. The layouts support this by rendering [the `scripts` stack](https://laravel.com/docs/7.x/blade#stacks).
 
 ```php
 @extends('northwestern::purple-container')
