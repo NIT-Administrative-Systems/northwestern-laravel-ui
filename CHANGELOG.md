@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
+## [v4.1.0] - 2026-01-23
+### Added
+- Added the `headScripts` stack for pushing additional JS or CSS includes into the `<head>` tag.
+
+## [v4.0.1] - 2026-01-21
+*This release has been withdrawn and replaced by v4.1.0. Please do not use this release!*
+
 ## [v4.0.0] - 2025-02-25
 ### Changes
 - The Campton font face definitions have been replaced by Poppins in `nu_fonts.scss`.
