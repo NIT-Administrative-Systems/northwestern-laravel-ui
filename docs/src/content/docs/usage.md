@@ -1,4 +1,8 @@
-# Using the Layouts
+---
+title: Using the Layouts 
+description: Available layout and their usage.
+---
+
 There are two different versions of the layout: 
 
 - **Purple Container** - the site content is wrapped in a run-of-the-mill Bootstrap container, which is sized based on media query breakpoints
@@ -23,7 +27,7 @@ The purple container is a bread-and-butter general purpose layout.
 
 The heading and content are split into separate components so any flash messages can appear between them. If you find this undesirable (or your page has no heading), you may omit the separate heading section.
 
-![Purple container layout](./assets/container-layout.png)
+![Purple container layout](../../assets/container-layout.png)
 
 ## Purple Widescreen
 The purple widescreen layout is ideal for datatables with filter controls on the side.
@@ -73,7 +77,7 @@ By default, the sidebar will be on the left side of the screen. If you prefer to
 
 As with the purple container, the heading/content are split so flash messages may be shown between them. When displaying a table, the heading is typically omitted so the table's controls align with the top of the search filters.
 
-![Purple widescreen layout](./assets/widescreen-layout.png)
+![Purple widescreen layout](../../assets/widescreen-layout.png)
 
 ## Building Your Own Layout
 The header & footer are in their own template without any containers or columns for the content. You can extend the base layout to define your own custom Bootstrap grid for the page content.
@@ -140,7 +144,7 @@ All you need to do is include the error view. It will detect when the default er
 
 It has some boilerplate text and an icon, giving you a standard look for form validation summaries.
 
-![Form validation summary](./assets/error.png)
+![Form validation summary](../../assets/error.png)
 
 ## Flash Messages
 [Flash messages](https://laravel.com/docs/10.x/session#flash-data) are used to provide feedback to the user and will be displayed automatically by both layouts.
@@ -282,7 +286,7 @@ If the package detects [Livewire](https://laravel-livewire.com) is installed, th
 
 This setup is automatic and does not require anything to be done beyond installing the package.
 
-:::danger Livewire v3
+:::danger[Livewire v3]
 
 Starting in Livewire v3, Alpine and Livewire assets are automatically injected into the layout. If you wish to customize the order in which these libraries are loaded or register Alpine plugins, follow these steps to prevent this package from additionally injecting the assets:
 
