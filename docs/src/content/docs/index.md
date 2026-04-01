@@ -1,4 +1,8 @@
-# Northwestern Bootstrap Preset for Laravel
+---
+title: Getting Started 
+description: Adds a Northwestern Bootstrap theme into your Laravel application.
+---
+
 Adds a Northwestern Bootstrap theme into your Laravel application.
 
 The Sentry browser SDK (for reporting on JS errors) will be automatically configured if you are using Sentry in the Laravel app. You should [enable tunneling for the browser SDK](usage.md#sentry).
@@ -8,7 +12,7 @@ This depends on the `laravel/ui` package. It is mutually exclusive with Laravel 
 ## Overview
 The package modifies the default Bootstrap settings to be more purple, loads the Northwestern fonts, adds [Font Awesome icons](https://fontawesome.com/icons?d=gallery&m=free), and gives you a responsive ready-made site layout.
 
-![Purple container layout](./assets/container-layout.png)
+![Purple container layout](../../assets/container-layout.png)
 
 For the most part, the purple-ization is rolled out across all Bootstrap components and you will not need to do anything special to take advantage of it.
 
@@ -21,7 +25,7 @@ In order to use this package, you must:
 ## Installation
 Install the package via composer, and then swap to the Northwestern preset. This works like the [standard Laravel UI presets](https://laravel.com/docs/7.x/frontend).
 
-:::danger Overwrites Files
+:::danger[Overwrites Files]
 Changing your UI preset will overwrite some files in `resources/scss`, `resources/views`, and `resources/js`. 
 
 If you are adding this to an existing app, make sure you have a backup of your project before changing the preset.
@@ -152,7 +156,7 @@ This release supports Laravel 8.
 
 There are no breaking changes in this release.
 
-:::tip Laravel 8 Paginator
+:::tip[Laravel 8 Paginator]
 The framework changed the paginator to use TailwindCSS styles in Laravel 8.
 
 If you are seeing very large angle brackets beneath your paginator, you need to [add `Paginator::useBootstrap()`](https://laravel.com/docs/8.x/upgrade#pagination-defaults) to your `AppServiceProvider`.
