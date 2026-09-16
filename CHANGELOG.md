@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
+## [v4.2.0] - 2026-09-16
+### Changed
+- PHP 8.2 support has been dropped. The minimum required version is now PHP 8.3.
+- The `docs/` are no longer included in the published Packagist artifacts.
+
 ## [v4.1.0] - 2026-01-23
 ### Added
 - Added the `headScripts` stack for pushing additional JS or CSS includes into the `<head>` tag.

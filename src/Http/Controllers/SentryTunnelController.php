@@ -19,7 +19,7 @@ class SentryTunnelController
 
         $dsn = parse_url($header['dsn']);
         $projectId = intval(trim($dsn['path'], '/'));
-        abort_unless($projectId, 422, 'Project ID not found in envelope');
+        abort_unless($projectId !== 0, 422, 'Project ID not found in envelope');
 
         // The trailing slash is important (otherwise Sentry gives you a 404)
         $sentryUrl = sprintf('https://sentry.io/api/%s/envelope/', $projectId);
